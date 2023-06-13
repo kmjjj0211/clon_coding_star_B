@@ -1,103 +1,182 @@
-@import url(reset.css);
-@import url(rayout.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-/* font-family: 'Noto Sans KR', sans-serif; */
 
-/* header */
-.header_inner{
+
+/* container */
+/* aside */
+
+
+/* //aside */
+
+/* section1 - mainBanner */
+/* 메인배너 텍스트 */
+.main_visual{
     position: relative;
     display: flex;
     justify-content: space-between;
 }
-
-/* 로고 */
-.header_inner>.logo{
-    margin: 20px 0;
+.main_visual>.main_txt{
+    border: 1px solid blue;
+    color: #000;
+    font-size: 50px;
+    text-align: center;
+}
+.main_visual>.main_txt>p{}
+/* 매인배너 - 자동배너 */
+.main_visual>.banner{border: 1px solid black;}
+.main_visual>.banner>.main_contents{}
+.main_visual>.banner>.main_contents>.content{
+    position: relative;
+    border: 1px solid blue;
+}
+.main_visual>.banner>.main_contents>.content>img{
+    margin: 0 100px;
+}
+.main_visual>.banner>.main_contents>.content>p{
+    font-size: 14px;
+    position: absolute; left: 50%;
+    transform: translateX(-50%);
+}
+.main_visual>.banner>.main_contents>.content>p>a{
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1.5px solid black;
+    border-radius: 20px;
+    transition: all 1s ease;
 }
 
-/* 유틸메뉴 */
-.top_menu>.util_nav{
+.main_visual>.banner>.main_contents>.content>p>a:hover{
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+}
+/* 배너 컨트롤 */
+.main_visual>.banner>.controls{}
+.main_visual>.banner>.controls>.play_stop{}
+.main_visual>.banner>.controls>.play_stop>span{
+    display: inline-block;
+    width: 10px; height: 12px;
+    background: url(../img/controls.png);
+    background-position: 86px 11px;
+}
+
+.main_visual>.banner>.controls>.banner_page_roll{}
+.main_visual>.banner>.controls>.banner_page_roll>span{
+    display: inline-block;
+    width: 13px; height: 12px;
+    background: url(../img/banner_page_roll.png);
+}
+/* //section1 - mainBanner */
+
+/* section2 - 스타벅스 리워드 */
+.rewards{
+    background: #1E3932;
+}
+.rewards>.rewards_inner{
+    width: 1080px; height: 100%;
+    margin: 0 395px;
+    padding: 45px 0;
     display: flex;
 }
-.top_menu>.util_nav>li{
+.rewards>.rewards_inner>img{
+    margin-right: 100px;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1{
+    border-bottom: 1px solid rgb(75, 97, 91);
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>p{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>div{
+    width: 795px;
+    position: relative;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>div>div{
+    position: absolute; right: 0; bottom: 0;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>div>div>button{
+    padding: 10px 15px;
+    font-size: 15px; 
+    border-radius: 5px;
+    color: #fff;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>div>div>button:first-of-type{
+    background: #00704A;
+    border: 2px solid #00704A;
+    margin-right: 10px;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content1>div>div>button:last-of-type{
+    border: 2px solid #fff;
+    background: #1E3932;
+}
+.rewards>.rewards_inner>.rewards_content>.rewards_content2{
+    position: relative;
+    width: 795px;
+    margin-top: 40px;
     font-size: 14px;
-    color: #333;
 }
-.top_menu>.util_nav>li>a{
+.rewards>.rewards_inner>.rewards_content>.rewards_content2>button{
+    position: absolute; right: 0; bottom: 0;
+    padding: 10px 20px;
+    font-size: 15px; 
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #fff;
+    background: #1E3932;
+}
+/* //section2 - 스타벅스 리워드 */
+
+/* section_content1 */
+.content1{
+    background: url(../img/2023_summer_promotion_bg.jpg)  center/cover no-repeat;
+}
+.content1>.content1_inner{
     position: relative;
-    display: block;
-    padding: 20px;
+    width: 1124px;
+    display: flex;
+    margin: 0 auto;
 }
-.top_menu>.util_nav>li>a::after{
-    content: "";
-    display: block;
-    width: 1px; height: 15px;
-    background-color: #CECECE;
-    position: absolute; right: 0; bottom: 50%;
-    transform: translateY(50%);
+/* 커피이미지 트랜지션 전 */
+.content1>.content1_inner>img{
+    opacity: 0;
+    position: relative; left: -1000px;
+    transition: all 1.3s linear 0s;
 }
-.top_menu>.util_nav>li:last-of-type>a::after{
-    display: none;
+/* 커피이미지 트랜지션 후 */
+.content1>.content1_inner.section_show>img{
+    opacity: 1;
+    position: relative; left: 0;
 }
-/* 통합검색 */
-.top_menu>form{
-    margin-top: 15px;
+/* 텍스트부분 트랜지션 전 */
+.content1>.content1_inner>.content1_txt{
+    opacity: 0;
+    position: absolute; right: -100%; top: 50%;
+    transition: all 1.3s linear 0s;
 }
-.top_menu>form>fieldset{
-    position: relative;
-}
-.top_menu>form>fieldset>input{
-    width: 180px; height: 35px;
-    border: 1px solid #CCCCCC;
-    border-radius: 20px;
-}
-.top_menu>form>fieldset>input::placeholder{
-    text-indent: 10px;
-}
-.top_menu>form>fieldset>img{
-    position: absolute; right: 5%; top: 50%;
+/* 텍스트부분 트랜지션 후 */
+.content1>.content1_inner.section_show>.content1_txt{
+    opacity: 1;
+    position: absolute; right: 10%; top: 50%;
     transform: translateY(-50%);
 }
 
-/* gnb - 타이틀 */
-nav.gnb{
-    font-size: 14px;
-}
-nav.gnb>ul{
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav.gnb>ul>li>a{
+.content1>.content1_inner>.content1_txt>a{
     display: block;
-    padding:20px;
+    width: 80px;
+    color: #816f41;
+    margin-top: 20px;
+    border: 2px solid #816f41;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.8s ease;
 }
-nav.gnb>ul>li>a.mouseover{
-    color: #607D2B;
-    text-decoration: underline;
-    background: #2C2A29;
-}
-
-/* gnb - sub_menu */
-.sub_nav_inner>.sub_nav_lists{
-    display: none;
-}
-.sub_nav_inner>.sub_nav_lists.show{
-    display: flex;
-    flex-wrap: wrap;
-}
-.sub_nav_inner>.sub_nav_lists>ul{
-    width: 220px;
-}
-.sub_nav_inner>.sub_nav_lists>ul>li.sub_nav_list_title>a{
+.content1>.content1_inner>.content1_txt>a:hover{
     color: #fff;
-    font-size: 14px;
-    display: block;
-    padding: 15px 0;
+    background: #816f41;
 }
-.sub_nav_inner>.sub_nav_lists>ul>li>a{
-    color: #909090;
-    font-size: 13px;
-}
-
-
+/* //section_content1 */

@@ -1,5 +1,8 @@
 // gnb - subMunu
-let gnbTitle = document.querySelectorAll(".gnb>ul>li>a");
+
+window.addEventListener('load',()=>{
+
+    let gnbTitle = document.querySelectorAll(".gnb>ul>li>a");
 let subNavLists = document.querySelectorAll(".sub_nav_lists");
 let sub_nav_wrap = document.querySelector(".sub_nav_wrap");
 
@@ -30,3 +33,17 @@ for(let k=0; k<subNavLists.length; k++){
         gnbTitle[k].classList.remove("mouseover");
     })
 }
+})
+
+
+// section 트랜지션
+let content1_inner = document.querySelector(".content1_inner");
+window.addEventListener("scroll",(e)=>{
+    let scroll = this.scrollY
+    console.log(scroll)
+    if(scroll >= 200){
+        content1_inner.classList.add("section_show");
+    }else{
+        content1_inner.classList.remove("section_show");
+    }
+})
